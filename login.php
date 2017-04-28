@@ -135,12 +135,12 @@ $lname = $_POST['Lname'];
 $gender = $_POST['gender'];
 $bday = $_POST['bday'];
 $phone = $_POST['phone'];
-$username = $_POST['newemail'];
+$email = $_POST['newemail'];
 $password = $_POST['password1'];
 $cpassword = $_POST['password2'];
 
 if ($password == $cpassword) {
-  $query = "select * from patient WHERE E_MAIL= '$username'";
+  $query = "select * from patient WHERE E_MAIL= '$email'";
   $query_run = mysqli_query($con,$query);
 
  if (mysqli_num_rows($query_run) > 0) {
@@ -148,7 +148,7 @@ if ($password == $cpassword) {
  }
  else
  {
-$query = "insert into patient values('','$fname','$lname','$password','$bday','','$gender','$username','$phone','','')";
+$query = "insert into patient values('','$fname','$lname','$password','$bday','','$gender','$email','$phone','','')";
 $query_run = mysqli_query($con,$query);
 
  if ($query_run) {

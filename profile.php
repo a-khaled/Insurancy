@@ -3,7 +3,7 @@ session_start();
 
 require 'dbconfig/config.php';
 
-$query = "select * from patient";// WHERE E_MAIL= '" . $username= $_SESSION['username'] . "'";
+$query = "select * from patient WHERE E_MAIL= '" . $username= $_SESSION['username'] . "'";
 $query_run = mysqli_query($con,$query);
 $row = mysqli_fetch_assoc($query_run);
 
