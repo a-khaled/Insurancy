@@ -65,7 +65,7 @@ $row = mysqli_fetch_assoc($query_run);
 	 <br>
 	<ul class="b">
   <li>NAME:
-<?php echo $row['FIRST_NAME']; ?>
+<?php echo $row['FIRST_NAME'] . " " . $row['LAST_NAME']; ?>
   </li>
   <br>
       <li>Address: </li>
