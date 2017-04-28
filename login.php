@@ -97,7 +97,7 @@ else {
 <input type="text" name="Lname" id="Lname" class="txtfield"  autocomplete="off">
 
     <p>Enter you birthdate:</p>
-<input type="date" name="bday" min="1950-01-02" max="2000-12-31"><br>
+<input type="date" name="bday" min="1920-01-02" max="2017-12-31"><br>
     <label for="phone">Phone</label>
 <input type="phone" name="phone" id="phone" autocomplete="off"> <br>
 
