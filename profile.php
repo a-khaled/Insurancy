@@ -71,7 +71,11 @@ $row = mysqli_fetch_assoc($query_run);
       <li>Address: </li>
    <br>
   <li>AGE:
-
+<?php
+  $dob= $row['DATE_OF_BIRTH'];
+  $diff = (date('Y') - date('Y',strtotime($dob)));
+  echo $diff;
+ ?>
   </li>
   <br>
    <li>GENDER:
