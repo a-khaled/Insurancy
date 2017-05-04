@@ -101,8 +101,14 @@ $row = mysqli_fetch_assoc($query_run);
 
 		  </div> -->
     <div class="patient" id="p_history">  <!--معلومات عن المريض -->
-
-
+<form action="login.php" id="signinform" method="post">
+<input type="submit" name="signoutbtn" id="submitsignin" value="Sign out" class="btn" >
+<?php
+if(isset($_POST['signoutbtn'])) {
+  session_destroy();
+  header('location:profile.php');
+}
+ ?>
 <div class ="his">
            <h2>HISTORY</h2>
 		  </div>
