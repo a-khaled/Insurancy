@@ -1,0 +1,204 @@
+*{
+    margin: 0; padding: 0;
+}
+
+#body_login { background-image: url(../images/1.jpg); background-repeat: no-repeat;background-size: 1600px 1400px;
+   
+}
+
+#body_profile {
+    background-image: url(1.jpg); background-repeat: no-repeat;background-size: 1400px 1400px; 
+}
+
+#divwrapper {width: 1000px;
+margin: 20px auto;
+    background-color: white
+}
+
+#divheader {width: 1000px;
+    text-align: center;
+    overflow: hidden;
+    text-align: center;
+    background-color: white;
+    border:1px solid black;
+        
+    
+}
+
+
+#divheader h1 {padding-top: 20px;
+padding-bottom: 20px;
+color: #bb267d;
+}
+#divLine {width: 1000px;
+background-color:#bb267d;
+height: 4px;}
+
+#divLinks {width: 1000px;background-color: black;}
+
+#divNav {width: 400px;background-color:black;height: 38px;margin: 0 auto;}
+
+#divNav ul {list-style-type: none;}
+
+#divNav ul li{float: left;margin-top: 7px; margin-right: 5px}
+
+#divNav ul li a {display: block;
+    height: 20px;
+background-color:#bb267d;
+width: 80px;
+color:white;
+text-align: center;
+text-decoration: none;
+    font-family:serif;
+border-radius: 10px;
+border: solid 1px black;   
+  }
+
+
+#divNav ul li a:hover {background-color:#5167f7}
+
+#divNav ul li a.current, #divNav ul li a.current:hover {background-color:#5167f7;color:white;cursor: default}
+
+marquee {color: #bb267d; border: 2px solid black;padding: 10px;font-size: 20px;background-color: rgba(81,103,247,.6);}
+
+#maincontent {width: 1000px;height: 800px; background-image: url(123.jpg);background-size: 1000px 800px;background-repeat: no-repeat;
+}
+
+#container{
+        width:35%;
+      margin-right:auto;
+        margin-left:auto;
+        background-color:rgba(187,38,125,.7);
+       border-radius:20px;
+       box-shadow:0px 0px 12px rgba(15, 15, 15, 0.7);
+    height:auto; }
+    
+
+#signupbox{
+        display:none;
+        padding:40px;
+}
+
+#container #tabbox{
+        width:100%;
+        height:40px;    
+        border-bottom: 1px solid #fff;
+}
+/*  style single tabs */
+.tab{
+        width:50%;
+        height:40px;
+        display:block;
+        line-height:40px;
+        text-align:center;       
+        -webkit-border-top-left-radius:20px;
+        -webkit-border-top-right-radius:20px;
+        -moz-border-radius:4px 4px 0px 0px;
+    font-size: 25px;
+         
+} 
+#tabbox a { 
+    float:left; 
+    text-decoration:none;
+    color:#000; 
+   }
+.select
+        {
+        background-color:white;
+        }
+label{
+        display:block;
+        padding:3px;
+        color:#fff;
+}
+#signupbox p {color:white}
+
+.radio font-color: white}
+
+
+.txtfield{
+        border-radius:5px;
+        height:25px;
+        width:80%;
+}
+.btn{
+        display:block;
+        padding:10px;
+        border-radius:7px;
+        background-color:#fff;
+        color:#000;
+        font-size:15px;
+        margin:10px 0px 0px 15px;
+        box-shadow:0px 0px 5px #fff;
+}
+#signinbox{
+        padding:15px;
+        margin:30px 0px 0px 30px;
+}
+.error{
+        color:deepskyblue;
+}
+
+
+.profile-info {width: 1000px;
+    margin: 20px auto; height: 800px ;background-image:url(123.jpg);background-size:1000px 800px; }
+div.patient{
+	
+	border :5px solid ;
+	float:left;
+	
+	
+}
+.div1{border-bottom:2px solid #5167f7;
+margin:15px;width:200px;}
+	.div2{border-bottom:2px solid #5167f7;
+	margin-left:90px;width:200px;margin-top;30px;}
+	.div3{border-bottom:2px solid #5167f7;
+	margin:20px;width:200px;}
+
+
+div#p_info{background-color: white;
+    width: 235px;
+    height: 696px;
+    margin-left: 30px;
+    border: 2px solid #5167f7;
+    border-radius: 20px;
+    margin-top: 30px;}
+
+div#p_history{background-color: white;width:380px;height: 500px;
+border: 2px solid#5167f7; border-radius: 20px;margin-top:30px;margin-left:30px;}
+div#p_recommendation{background-color: white;width:235px;height: 500px;
+border: 2px solid #5167f7; border-radius: 20px;margin-top:30px;margin-left:30px;
+}
+.his{text-align:center;color:#5167f7;font-family:tahoma;margin-top:15px; }
+.rec{font-family:tahoma;color:#5167f7;text-align:center;margin-top:15px;}
+ul.b {
+    list-style-type: circle;
+	margin-left:30px;
+	color:#5167f7;
+	font-family: tahoma;
+}
+
+
+#footer_login {background-color: black;
+padding: 3px;
+color: white;
+text-align: center;
+width:1000px;
+margin: auto;
+
+
+}
+
+#footer_profile {background-color: black;
+padding: 3px;
+color: white;
+text-align: center;
+width:1000px;
+margin: 20px auto;
+
+
+}
+
+.pic {width: 40px;padding: 15px;}
+img{width:25px}
