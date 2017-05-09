@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+require 'dbconfig/config.php';
+
+$query = "select * from medical_organization WHERE E_Mail= '" . $username= $_SESSION['email'] . "'";
+$query_run = mysqli_query($con,$query);
+$row = mysqli_fetch_assoc($query_run);
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,7 +56,7 @@
        <div class="overlay">
                 <ul class="bxslider">
                   <li>
-                    <h2>Welcome
+                    <h2>Welcome <?php echo $row['Full_Name']; ?>
 
                         <label for="pharmacy name"></label>
 

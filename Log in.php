@@ -38,6 +38,76 @@ require 'dbconfig/config.php';
 <input type="password" name="password" id="password" class="txtfield"  autocomplete="off">
 <input type="submit" name="signinbtn" id="submitsignin" value="Sign in" class="btn" >
 </form>
+<?php
+if (isset($_POST['signinbtn'])) {
+  $username = $_POST['email'];
+  $password = $_POST['password'];
+
+  $query = "select * from patients WHERE E_MAIL='$username' AND USER_PASSWORD='$password'";
+  $query_run = mysqli_query($con,$query);
+
+  if (mysqli_num_rows($query_run)>0) {
+
+  $_SESSION['email']= $username;
+    header('location:formate.php');
+
+  }
+
+    $query2 = "select * from insurance WHERE E_MAIL='$username' AND PASSWORD_='$password'";
+    $query_run2 = mysqli_query($con,$query2);
+
+    if (mysqli_num_rows($query_run2)>0) {
+
+    $_SESSION['email']= $username;
+      header('location:treatment request.php');
+
+    }
+
+    $query3 = "select * from medical_organization WHERE E_MAIL='$username' AND PASSWORD_='$password'";
+    $query_run3 = mysqli_query($con,$query3);
+
+    if (mysqli_num_rows($query_run3)>0) {
+
+    $_SESSION['email']= $username;
+    $row = mysqli_fetch_assoc($query_run3);
+    $page = $row['Types'];
+
+    switch ($page) {
+      case 'Hospitals':
+        header('location:hospital.php');
+        break;
+      case 'Investigation Lab':
+        header('location:investigation lab.php');
+        break;
+        case 'Ray lab':
+          header('location:Ray lab.php');
+          break;
+          case 'Pharmacy':
+            header('location:pharmacy.php');
+            break;
+      default:
+        # code...
+        break;
+    }
+
+
+
+   }
+   else {
+      echo '<script type="text/javascript"> alert("Invalid username or password") </script>';
+   }
+
+
+
+
+
+
+
+}
+
+
+
+ ?>
 </div>
 
       <!-- goz2 el sign up -->
@@ -87,9 +157,9 @@ require 'dbconfig/config.php';
 
   <label  for="selectbasic">Gender</label>
     <select  name="gender" >
-      <option value="1">Male</option>
-      <option value="2">Female</option>
-      <option value="3">None</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="None">None</option>
     </select>
 
      <label  for="insurance">insured by:</label>
@@ -142,7 +212,7 @@ if (isset($_POST['registerbtn'])) {
   if ($password == $cpassword) {
 
     if ($morg == 'Individual') {
-      $query = "select * from patient WHERE E_MAIL= '$email'";
+      $query = "select * from patients WHERE E_MAIL= '$email'";
       $query_run = mysqli_query($con,$query);
 
       if (mysqli_num_rows($query_run) > 0) {
@@ -150,7 +220,7 @@ if (isset($_POST['registerbtn'])) {
       }
       else
       {
-     $query = "insert into patient values('','$fname','$lname','$password','','$phone','$email','$address','$bday','$gender','$type','$insname','$compname')";
+     $query = "insert into patients values('','$fname','$lname','$password','','$phone','$email','$address','$bday','$gender','$type','$insname','$compname')";
      $query_run = mysqli_query($con,$query);
 
       }

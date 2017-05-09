@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+require 'dbconfig/config.php';
+
+$query = "select * from patients WHERE E_MAIL= '" . $username= $_SESSION['email'] . "'";
+$query_run = mysqli_query($con,$query);
+$row = mysqli_fetch_assoc($query_run);
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +39,7 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact us.html">Contact us</a></li>
                     <li><a href="login.html">Login</a></li>
-                    <li><a href="sign up.html">Sign Up</a></li>
+                    <li><a href="Log in.php">Sign Out</a></li>
 
 
 
@@ -62,15 +74,29 @@
 	<ul class="b">
 	<br>
 	<li><i class="w3-xxlarge fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
- <label for =" name"id="p_name"></label></li><br>
+ <label for =" name"id="p_name">
+<?php echo $row['First_Name'] . " " . $row['Last_Name']; ?>
+ </label></li><br>
+ <!--
 <li>  <i class="fa fa-id-card fa-2x" aria-hidden="true"style="color:#3cc2ed;"></i>
 <label for ="id"id="p_id"></label></li><br>
+-->
   <li><i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
-   <label for ="birth"id="d_birth"></label></li><br>
+   <label for ="birth"id="d_birth">
+     <?php
+       $dob= $row['Date_of_Birth'];
+       $diff = (date('Y') - date('Y',strtotime($dob)));
+       echo $diff;
+      ?>
+   </label></li><br>
  <li> <i class="fa fa-venus-mars fa-2x" style="color:#3cc2ed;"aria-hidden="true"></i>
-    <label for ="p_gender"id="p_gender"></label></li><br>
+    <label for ="p_gender"id="p_gender">
+<?php echo $row['Gender']; ?>
+    </label></li><br>
 <li> <i class="fa fa-building-o fa-2x" aria-hidden="true"></i>
-<label for ="insured by"id="in_company"></label></li><br>
+<label for ="insured by"id="in_company">
+<?php echo $row['Insured_By']; ?>
+</label></li><br>
 
 
 
@@ -92,13 +118,13 @@
 
 	<ul class="b">
 
- <li>  <label for =" mobile number"id="m_number"> </label></li>
+ <li>  <label for =" mobile number"id="m_number"></label></li>
 
 <li><label for ="Land line number"id="l_number"></label></li>
 
   <li><label for ="e.adress"id="e_address"></label></li>
 
- <li> <label for ="s.address"id="s_address"> </label></li>
+ <li> <label for ="s.address"id="s_address"></label></li>
 
 <li> <label for ="locality"id="locality"> </label></li><br> <br>
 
@@ -118,7 +144,7 @@
 
 			<div  id="for_doctor">
 		  	  <ul class="b">
-	 <li><label for =" mobile number"id="m_number"> </label></li>
+	 <li><label for =" mobile number"id="m_number"></label></li>
  <li><label for ="Land line number"id="l_number"></label></li>
   <li><label for ="e.adress"id="e_address"></label></li>
    </ul>
@@ -141,13 +167,19 @@
 
 	<ul class="b">
  <li>    <i class="fa fa-mobile fa-3x" aria-hidden="true"></i>
- <label for =" mobile number"id="m_number"></label></li><br>
+ <label for =" mobile number"id="m_number">
+<?php echo $row['Mobile']; ?>
+ </label></li><br>
 <li>  <i class="fa fa-phone fa-2x" aria-hidden="true" style="color:#3cc2ed;"></i>
 <label for ="Land line number"id="l_number"></label></li><br>
   <li><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-   <label for ="e.adress"id="e_address"></label></li><br>
+   <label for ="e.adress"id="e_address">
+<?php echo $row['E_Mail']; ?>
+   </label></li><br>
  <li> <i class="fa fa-address-book fa-2x" style="color:#3cc2ed;"aria-hidden="true"></i>
-   <label for ="s.address"id="s_address"> </label></li><br>
+   <label for ="s.address"id="s_address">
+<?php echo $row['Address']; ?>
+   </label></li><br>
 <li> <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
 <label for ="locality"id="locality"> </label></li><br>
 
