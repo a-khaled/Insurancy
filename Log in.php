@@ -43,7 +43,7 @@ require 'dbconfig/config.php';
       <!-- goz2 el sign up -->
 
 <div id="signupbox">
-<form action="#" id="signupform"method="post">
+<form action="Log in.php" id="signupform"method="post">
 <label for="Firstname">First Name</label>
 <!--<input type="text" name="Fname" id="Firstname" class="txtfield"   maxlength="10" autocomplete="off">-->
     <input pattern=".{3,}" name="Fname"  id="Fname" maxlength="10" required title="This field is required">
@@ -66,7 +66,7 @@ require 'dbconfig/config.php';
 
 
     <p>Enter you birthdate:</p>
-<input type="date" name="bday" max="1990-01-02" min="1950-12-31"><br>
+<input type="date" name="bday" max="2017-12-31" min="1950-1-1"><br>
 
     <label for="adress">Address</label>
 <input type="address" name="address" id="address" autocomplete="off"> <br>
@@ -153,13 +153,6 @@ if (isset($_POST['registerbtn'])) {
      $query = "insert into patient values('','$fname','$lname','$password','','$phone','$email','$address','$bday','$gender','$type','$insname','$compname')";
      $query_run = mysqli_query($con,$query);
 
-      if ($query_run) {
-         echo '<script type="text/javascript"> alert("User Registered") </script>';
-       }
-     else {
-       echo '<script type="text/javascript"> alert("Error") </script>';
-     }
-
       }
 
     }
@@ -174,13 +167,6 @@ if (isset($_POST['registerbtn'])) {
       {
      $query = "insert into insurance values('','$fname','$password','$phone','','$fax','$email','$address')";
      $query_run = mysqli_query($con,$query);
-
-      if ($query_run) {
-         echo '<script type="text/javascript"> alert("User Registered") </script>';
-       }
-     else {
-       echo '<script type="text/javascript"> alert("Error") </script>';
-     }
 
       }
 
@@ -197,17 +183,15 @@ if (isset($_POST['registerbtn'])) {
     $query = "insert into medical_organization values('','$fname','$password','$phone','','$fax','$email','$address','$morg')";
     $query_run = mysqli_query($con,$query);
 
-     if ($query_run) {
-        echo '<script type="text/javascript"> alert("User Registered") </script>';
-      }
-    else {
-      echo '<script type="text/javascript"> alert("Error") </script>';
-    }
-
      }
 
    }
-
+   if ($query_run) {
+      echo '<script type="text/javascript"> alert("User Registered") </script>';
+    }
+   else {
+    echo '<script type="text/javascript"> alert("Error") </script>';
+   }
  }
  else {
    echo '<script type="text/javascript"> alert("password and confirm password does not match") </script>';
