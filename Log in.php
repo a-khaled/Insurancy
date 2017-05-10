@@ -59,7 +59,7 @@ if (isset($_POST['signinbtn'])) {
     if (mysqli_num_rows($query_run2)>0) {
 
     $_SESSION['email']= $username;
-      header('location:treatment request.php');
+      header('location:ins_company.php');
 
     }
 
