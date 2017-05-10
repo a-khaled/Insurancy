@@ -7,6 +7,10 @@ $query = "select * from insurance WHERE E_Mail= '" . $username= $_SESSION['email
 $query_run = mysqli_query($con,$query);
 $row = mysqli_fetch_assoc($query_run);
 
+$query1 = "select * from treatreq WHERE reciever= '" . $reciever= $_SESSION['to'] . "'";
+$query_run1 = mysqli_query($con,$query1);
+$row1 = mysqli_fetch_assoc($query_run1);
+
 ?>
 
 <!DOCTYPE html>
@@ -46,8 +50,8 @@ $row = mysqli_fetch_assoc($query_run);
 <li>
                      <div class="dropdown">
                       <button class="dropbtn" >Notifications</button>
-                      <div class="dropdown-content">
-                      <a href="notification.php" >you have a request from</a>
+                      <div class="dropdown-content" hidden>
+                      <a href="notification.php" >you have a request</a>
 
                       </div>
                      </div>
