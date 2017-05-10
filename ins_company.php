@@ -47,13 +47,13 @@ $row = mysqli_fetch_assoc($query_run);
                      <div class="dropdown">
                       <button class="dropbtn" >Notifications</button>
                       <div class="dropdown-content">
-                      <a href="notification.html" >you have a request from</a>
+                      <a href="notification.php" >you have a request from</a>
 
                       </div>
                      </div>
                 </li>
 
-                 <li><a href="#" >Sign out</a></li>
+                 <li><a href="signout.php" >Sign out</a></li>
              </ul>
             <div class="clearfix"></div>
         </div>

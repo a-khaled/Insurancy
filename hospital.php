@@ -42,8 +42,8 @@ $row = mysqli_fetch_assoc($query_run);
                      </div>
                 </li>
 
-                 <li><a href="treatment%20request.html"> Treatment Request</a> </li>
-                 <li><a href="#" >Sign out</a></li>
+                 <li><a href="treatment%20request.php"> Treatment Request</a> </li>
+                 <li><a href="signout.php" >Sign out</a></li>
              </ul>
             <div class="clearfix"></div>
         </div>

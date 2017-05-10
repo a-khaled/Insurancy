@@ -32,7 +32,7 @@
                      </div>
                 </li>
 
-                 <li><a href="Log in.html" >Login</a></li>
+                 <li><a href="Log in.php" >Login</a></li>
              </ul>
             <div class="clearfix"></div>
         </div>

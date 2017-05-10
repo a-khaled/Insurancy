@@ -39,7 +39,7 @@ $row = mysqli_fetch_assoc($query_run);
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact us.html">Contact us</a></li>
                     <li><a href="login.html">Login</a></li>
-                    <li><a href="Log in.php">Sign Out</a></li>
+                    <li><a href="signout.php">Sign Out</a></li>
 
 
 
