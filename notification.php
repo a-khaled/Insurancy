@@ -2,7 +2,7 @@
 session_start();
 require 'dbconfig/config.php';
 
-$query = "select * from treatreq WHERE reciever= '" . $username= $_SESSION['email'] . "' AND approval='0'";
+$query = "select * from treatreq WHERE reciever= '" . $username= $_SESSION['email'] . "' AND approval=''";
 $query_run = mysqli_query($con,$query);
 $row = mysqli_fetch_assoc($query_run);
 
@@ -48,12 +48,12 @@ $row = mysqli_fetch_assoc($query_run);
 </form>
 <?php
 if (isset($_POST['accept'])) {
-  $query = "UPDATE treatreq SET approval='1' WHERE reciever= '" . $username= $_SESSION['email'] . "'";
+  $query = "UPDATE treatreq SET approval='accepted' WHERE reciever= '" . $username= $_SESSION['email'] . "'";
   $query_run = mysqli_query($con,$query);
   echo '<script type="text/javascript"> alert("request accepted") </script>';
 }
 if (isset($_POST['reject'])) {
-  $query = "UPDATE treatreq SET approval='1' WHERE reciever= '" . $username= $_SESSION['email'] . "'";
+  $query = "UPDATE treatreq SET approval='rejected' WHERE reciever= '" . $username= $_SESSION['email'] . "'";
   $query_run = mysqli_query($con,$query);
   echo '<script type="text/javascript"> alert("request rejected") </script>';
 }

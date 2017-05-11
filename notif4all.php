@@ -1,3 +1,14 @@
+<?php
+session_start();
+require 'dbconfig/config.php';
+
+$query = "select * from treatreq WHERE sender= '" . $username= $_SESSION['email'] . "'";
+$query_run = mysqli_query($con,$query);
+$row = mysqli_fetch_assoc($query_run);
+
+
+ ?>
+
 <html>
  <head>
 <meta charset="UTF-8">
@@ -17,21 +28,25 @@
 
      <div id="treat_req">
 
-<label for="from">From</label>
-<label for="request"id="request">unicare company  about mr : ahmed khaled situation  bla bla bla</label>
+<label for="from">From: <?php echo  $row['sender']?></label>
+<label for="request"id="request">your request is :</label>
 
 <br>
-
+<label for="request"id="request"><?php echo  $row['approval']?></label>
 <BR>
 
- <label class="comment" for="textarea"><b>comment if there </b></label>
+<!-- <label class="comment" for="textarea"><b>comment if there </b></label>
   <div class="comment">
     <textarea id="comment" id="textarea" name="comment"> </textarea>
-  </div>
+  </div> -->
 
-<input type="submit" name="signinbtn" id="treatsend" value="ok" class="btn" >
-
-<input type="submit" name="signinbtn" id="treatsend" value="back" class="btn" >
+<input type="submit" name="ok" id="treatsend" value="ok" class="btn" >
+<?php
+if (isset($_POST['ok'])) {
+  header('location:hospital.php');
+}
+ ?>
+<!-- <input type="submit" name="signinbtn" id="treatsend" value="back" class="btn" > -->
 
 </form>
 

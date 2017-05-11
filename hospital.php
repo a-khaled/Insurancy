@@ -43,6 +43,16 @@ $row = mysqli_fetch_assoc($query_run);
                 </li>
 
                  <li><a href="treatment%20request.php"> Treatment Request</a> </li>
+                 <li>
+                     <div class="dropdown">
+                      <button class="dropbtn" >Notifications</button>
+                      <div class="dropdown-content">
+                      <a href="notif4all.php" >you have an answer</a>
+
+                      </div>
+                     </div>
+                </li>
+
                  <li><a href="signout.php" >Sign out</a></li>
              </ul>
             <div class="clearfix"></div>
