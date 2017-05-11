@@ -135,7 +135,8 @@ $row = mysqli_fetch_assoc($query_run);
 
 
 		 </div>
-
+     <br>
+<br><br><br><br><br><br>
 		     <div class="doctor">
            <h3>Physician in charge:</h3>
 		    <br>

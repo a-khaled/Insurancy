@@ -1,33 +1,26 @@
 
 
 // start form //
-    
-    
-    $(document).ready(function(){     
+
+
+    $(document).ready(function(){
  // when class tab is clicked then this jquery function will  be fired
-  
+
       $("#signinform").validate({ // validate function for jquery validation
     rules:{
       email:{
-       required:true, 
+       required:true,
        username:true  // here we are performing user name validation
       },
       password:{
-       required:true, 
+       required:true,
        minlength:5
       }
     }
   });
   $("#signupform").validate({
     rules:{
-      Fname:{
-       required:true,
-        minlength:5 // minimum length to be 5
-      },
-         Lname:{
-       required:true,
-        minlength:5 
-      },
+
         bday:{
         required:true,
        bday:true
@@ -46,27 +39,27 @@
       },
       password2:{
         required:true,
-        
-        equalTo:"#password1" 
+
+        equalTo:"#password1"
                 },
         insurancename:{
             required:true,
             insurancename:true
         },
-        
+
     }
   });
-      
+
       $(".tab").click(function(){
     // In tab class we had made a variable which will take a clicked tab id
   var x = $(this).attr('id'); // attr is a attribute selector, here we are selecting the id attribute.
   if(x=='signup'){
     $('#signin').removeClass('select');
-      
+
     $('#signup').addClass('select');
     $('#signupbox').slideDown();
-      
-    $('#signinbox').slideUp(); 
+
+    $('#signinbox').slideUp();
   }
   else{
     $('#signup').removeClass('select');
@@ -75,7 +68,5 @@
     $('#signupbox').slideUp();
   }
   });
-          
+
 });
-
-
