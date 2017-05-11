@@ -57,7 +57,7 @@ if (mysqli_num_rows($query_run) > 0) {
   $query = "insert into treatreq values('','$sender','$reciever','$comment','')";
   $query_run = mysqli_query($con,$query);
 echo '<script type="text/javascript"> alert("request sent") </script>';
-$_SESSION['to']= $reciever;
+
 
 
 }

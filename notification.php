@@ -1,3 +1,14 @@
+<?php
+session_start();
+require 'dbconfig/config.php';
+
+$query = "select * from treatreq WHERE reciever= '" . $fname= $_SESSION['Fname'] . "'";
+$query_run = mysqli_query($con,$query);
+$row = mysqli_fetch_assoc($query_run);
+
+
+ ?>
+
 <html>
  <head>
 <meta charset="UTF-8">
@@ -17,16 +28,17 @@
 
      <div id="treat_req">
 
-<label for="from">From</label>
-<label for="request"id="request">andalosia hospital :to patient mr : ahmed khaled he is bla bla bla</label>
+<label for="from">Requester:</label>
+<!-- <label for="request"id="request"> to patient mr : ahmed khaled he is bla bla bla</label> -->
 
 <br>
 
 <BR>
 
- <label class="comment" for="textarea"><b>comment if there </b></label>
+ <label class="comment" for="textarea"><b>Request: <?php echo $row['sender']; ?></b></label>
   <div class="comment">
-    <textarea id="comment" id="textarea" name="comment"> </textarea>
+    <label class="comment" for="textarea"><b></b></label>
+  <!--  <textarea id="comment" id="textarea" name="comment"> </textarea> -->
   </div>
 
 <input type="submit" name="signinbtn" id="treatsend" value="accept" class="btn" >
