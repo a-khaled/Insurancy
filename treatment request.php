@@ -29,7 +29,7 @@ $row = mysqli_fetch_assoc($query_run);
 
 <label for="from">From</label>
 <!-- <input  type="from" name="from"  id="from" placeholder="your organization name" class="txtfield"  autocomplete="off"> -->
-<label for="org name"><?php echo $row['Full_Name'];   ?></label>
+<label for="org name"><?php echo $row['E_Mail'];   ?></label>
 <br>
 
 <label for="to">To</label>
@@ -45,11 +45,11 @@ $row = mysqli_fetch_assoc($query_run);
 <?php
 if (isset($_POST['send'])) {
 
-$sender = $row['Full_Name'];
+$sender = $row['E_Mail'];
 $reciever = $_POST['to'];
 $comment = $_POST['comment'];
 
-$query = "select * from insurance WHERE Full_Name= '$reciever'";
+$query = "select * from insurance WHERE E_Mail= '$reciever'";
 $query_run = mysqli_query($con,$query);
 
 if (mysqli_num_rows($query_run) > 0) {
