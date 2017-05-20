@@ -2,12 +2,12 @@
     margin: 0; padding: 0;
 }
 
-#body_login {
-    background-image: url(1.jpg); background-repeat: no-repeat;background-size: 1370px 1300px; 
+#body_login { background-image: url(../images/1.jpg); background-repeat: no-repeat;background-size: 1600px 1400px;
+   
 }
 
 #body_profile {
-    background-image: url(1.jpg); background-repeat: no-repeat;background-size: 1370px 1300px; 
+    background-image: url(1.jpg); background-repeat: no-repeat;background-size: 1400px 1400px; 
 }
 
 #divwrapper {width: 1000px;
