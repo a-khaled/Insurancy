@@ -49,7 +49,7 @@ if (isset($_POST['signinbtn'])) {
   if (mysqli_num_rows($query_run)>0) {
 
   $_SESSION['email']= $username;
-    header('location:formate.php');
+    header('location:patient profile.php');
 
   }
 
