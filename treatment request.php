@@ -41,6 +41,7 @@ $row = mysqli_fetch_assoc($query_run);
   </div>
 
 <input type="submit" name="send" id="treatsend" value="Send" class="btn" >
+<input type="submit" name="back" id="treatsend" value="Back" class="btn" >
 </form>
 <?php
 if (isset($_POST['send'])) {
@@ -68,7 +69,9 @@ else {
 
 
 }
-
+if (isset($_POST['back'])) {
+  header('location:hospital.php');
+}
  ?>
 </div>
 </div>
