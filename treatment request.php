@@ -6,6 +6,7 @@ $query = "select * from medical_organization WHERE E_Mail= '" . $username= $_SES
 $query_run = mysqli_query($con,$query);
 $row = mysqli_fetch_assoc($query_run);
 
+
  ?>
 
 
@@ -33,11 +34,11 @@ $row = mysqli_fetch_assoc($query_run);
 <br>
 
 <label for="to">To</label>
-<input  type="to" name="to" id="to" placeholder="insurance company name" class="txtfield"  autocomplete="off" required title="This field is required">
+<input  type="to" name="to" id="to" placeholder="insurance company name" class="txtfield"  autocomplete="off">
 
  <label class="comment" for="textarea"><b>Write your request</b></label>
   <div class="comment">
-    <textarea id="comment" id="textarea" name="comment" required title="This field is required"></textarea>
+    <textarea id="comment" id="textarea" name="comment"></textarea>
   </div>
 
 <input type="submit" name="send" id="treatsend" value="Send" class="btn" >
@@ -50,13 +51,13 @@ $sender = $row['E_Mail'];
 $reciever = $_POST['to'];
 $comment = $_POST['comment'];
 
-$query = "select * from insurance WHERE E_Mail= '$reciever'";
-$query_run = mysqli_query($con,$query);
+$query1 = "select * from insurance WHERE E_Mail= '$reciever'";
+$query_run1 = mysqli_query($con,$query1);
 
-if (mysqli_num_rows($query_run) > 0) {
+if (mysqli_num_rows($query_run1) > 0) {
 
-  $query = "insert into treatreq values('','$sender','$reciever','$comment','')";
-  $query_run = mysqli_query($con,$query);
+  $query1 = "insert into treatreq values('','$sender','$reciever','$comment','','','')";
+  $query_run1 = mysqli_query($con,$query1);
 echo '<script type="text/javascript"> alert("request sent") </script>';
 
 
@@ -66,11 +67,31 @@ else {
   echo '<script type="text/javascript"> alert("user does not exist") </script>';
 }
 
-
+header('location:treatment request.php');
 
 }
 if (isset($_POST['back'])) {
-  header('location:hospital.php');
+
+  $page = $row['Types'];
+
+  switch ($page) {
+    case 'Hospitals':
+      header('location:hospital.php');
+      break;
+    case 'Investigation Lab':
+      header('location:investigation lab.php');
+      break;
+      case 'Ray lab':
+        header('location:Ray lab.php');
+        break;
+        case 'Pharmacy':
+          header('location:pharmacy.php');
+          break;
+    default:
+    header('location:index.php');
+
+      break;
+  }
 }
  ?>
 </div>

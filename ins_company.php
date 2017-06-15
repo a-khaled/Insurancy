@@ -19,7 +19,6 @@ $row = mysqli_fetch_assoc($query_run);
          <link rel="stylesheet" href="css/normalize2.css"/>
         <link rel="stylesheet" href="css/web2.css"/>
          <link rel="stylesheet" href="css/font-awesome.css"/> <!-- font awesome icons -->
-
          </head>
     <body>
 

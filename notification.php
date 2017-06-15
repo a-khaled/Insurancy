@@ -2,7 +2,7 @@
 session_start();
 require 'dbconfig/config.php';
 
-$query = "select * from treatreq WHERE reciever= '" . $username= $_SESSION['email'] . "' AND approval=''";
+$query = "select * from treatreq WHERE reciever= '" . $username= $_SESSION['email'] . "' AND approval='' AND notif_status='0'";
 $query_run = mysqli_query($con,$query);
 $row = mysqli_fetch_assoc($query_run);
 
@@ -23,7 +23,7 @@ $row = mysqli_fetch_assoc($query_run);
 <div class="container">
 <img src="images/msg.jpg">
 
-    <form action="#" id="request"method="post">
+    <form action="notification.php" id="request" method="post">
 
 
      <div id="treat_req">
@@ -48,14 +48,31 @@ $row = mysqli_fetch_assoc($query_run);
 </form>
 <?php
 if (isset($_POST['accept'])) {
-  $query = "UPDATE treatreq SET approval='accepted' WHERE reciever= '" . $username= $_SESSION['email'] . "'";
-  $query_run = mysqli_query($con,$query);
-  echo '<script type="text/javascript"> alert("request accepted") </script>';
+  $query1 = "UPDATE treatreq SET approval='accepted', notif_status='1' WHERE reciever= '" . $username= $_SESSION['email'] . "' AND notif_status='0' LIMIT 1";
+  $query_run1 = mysqli_query($con,$query1);
+
+  if ($query_run1) {
+     echo '<script type="text/javascript"> alert("request accepted") </script>';
+   }
+  else {
+   echo '<script type="text/javascript"> alert("Error") </script>';
+  }
+
+ header('location:notification.php');
+
 }
 if (isset($_POST['reject'])) {
-  $query = "UPDATE treatreq SET approval='rejected' WHERE reciever= '" . $username= $_SESSION['email'] . "'";
-  $query_run = mysqli_query($con,$query);
-  echo '<script type="text/javascript"> alert("request rejected") </script>';
+  $query1 = "UPDATE treatreq SET approval='rejected', notif_status='1' WHERE reciever= '" . $username= $_SESSION['email'] . "' AND notif_status='0' LIMIT 1";
+  $query_run1 = mysqli_query($con,$query1);
+
+  if ($query_run1) {
+     echo '<script type="text/javascript"> alert("request rejected") </script>';
+   }
+  else {
+   echo '<script type="text/javascript"> alert("Error") </script>';
+  }
+
+  header('location:notification.php');
 }
 if (isset($_POST['back'])) {
   header('location:ins_company.php');
