@@ -46,10 +46,33 @@ $row = mysqli_fetch_assoc($query_run);
 <li>
                      <div class="dropdown">
                       <button class="dropbtn" >Notifications</button>
-                      <div class="dropdown-content" hidden>
-                      <a href="notification.php" >you have a request</a>
+                      <?php
+                  $query1 = "select * from treatreq WHERE reciever= '" . $username= $_SESSION['email'] . "'";
+                  $query_run1 = mysqli_query($con,$query1);
 
-                      </div>
+                 $c = 0;
+                 while ($row1 = mysqli_fetch_array($query_run1)) {
+
+                 if ($row1['notif_status']==0) {
+                                $c++;
+                         }
+
+                          }
+
+                if ($c == 0) {
+                  echo '<div class="dropdown-content" hidden>
+                  <a href="notification.php" >you have no requests</a>
+
+                  </div>';
+                 }
+                else {
+                echo '<div class="dropdown-content" hidden>
+                <a href="notification.php" >you have ' . $c . ' request</a>
+
+                </div>';
+                   }
+       ?>
+                    
                      </div>
                 </li>
 
