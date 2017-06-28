@@ -1,0 +1,4 @@
+
+  // Get the modal treatment request
+
+var modal = document.getElementById('id05');
